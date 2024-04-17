@@ -13,7 +13,8 @@ interface CardCarrinhoComponent {
 
 
 export const CardCarrinho = ({imagem, titulo, preco }:CardCarrinhoComponent) => {
-    let dados: string[] = JSON.parse(localStorage.getItem('produto')) || [];
+    const storage:any = localStorage.getItem('produto')
+    let dados: string[] = JSON.parse(storage) || [];
 
     const [quantidadeItem, setQuantidadeItem] = useState(1)
     const [valor, setValor] = useState<number>()

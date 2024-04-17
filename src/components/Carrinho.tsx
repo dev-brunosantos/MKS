@@ -12,8 +12,8 @@ interface CarrinhoComponent {
 // import SomarPrecos2 from '@/tools/SomarPreco'
 
 export const Carrinho = ({ largura, espaco, funcao }: CarrinhoComponent) => {
-
-    let dados: string[] = JSON.parse(localStorage.getItem('produto')) || [];
+    const storage:any = localStorage.getItem('produto')
+    let dados: string[] = JSON.parse(storage) || [];
     const [total, setTotal] = useState<number>()
     const [quantidade, setQuantidade] = useState(3)
 
