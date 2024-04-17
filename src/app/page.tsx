@@ -24,7 +24,10 @@ export default function Home() {
 
   const [produtos, setProdutos] = useState<String[]>([])
 
-  const storage:string[] = []
+  let dados: string[] = JSON.parse(localStorage.getItem('produto')) || [];
+  const [quantidade, setQuantidade] = useState(0)
+
+  
 
   useEffect(() => {
     async function buscarDados() {
@@ -34,6 +37,13 @@ export default function Home() {
     }
     buscarDados()
   }, [produtos])
+
+  useEffect(() => {
+      function QuantidadeCarrinho() {
+        dados.length != 0 ? setQuantidade(dados.length) : setQuantidade(0)
+      }
+      QuantidadeCarrinho()
+  }, [])
 
   const ApliaImg = (img: string) => {
     setSrcImg(img)
@@ -69,7 +79,7 @@ export default function Home() {
 
         <button type='button' onClick={BtnAbrirCarrinho} >
           <TiShoppingCart size={20} />
-          0
+          {quantidade}
         </button>
       </Styles.Menu>
       {/* CONTAINER COM TODOS OS PRODUTOS */}

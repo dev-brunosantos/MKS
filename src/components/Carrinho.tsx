@@ -1,4 +1,4 @@
-import { ContainerProdutosScrool, DivCarrinho, DivTitulo } from "@/styles/Carrinho"
+import { ContainerProdutosScrool, DivCarrinho, DivTitulo, FooterCarrinho, InforTotal } from "@/styles/Carrinho"
 import { MouseEventHandler, useEffect, useState } from "react";
 import { IoIosCloseCircle } from "react-icons/io";
 import { CardCarrinho } from "./CardCarrinho";
@@ -13,9 +13,9 @@ interface CarrinhoComponent {
 
 export const Carrinho = ({ largura, espaco, funcao }: CarrinhoComponent) => {
 
-    let dados: string[] = JSON.parse(localStorage.getItem('produto'));
+    let dados: string[] = JSON.parse(localStorage.getItem('produto')) || [];
 
-    dados.forEach(dado => console.log(dado))
+    // alert(dados.length)
 
     return (
         <DivCarrinho style={{ width: largura, padding: `0 ${espaco}` }} onMouseLeave={funcao}>
@@ -41,6 +41,16 @@ export const Carrinho = ({ largura, espaco, funcao }: CarrinhoComponent) => {
                     ))
                 }
             </ContainerProdutosScrool>
+
+            <InforTotal>
+                <p>Total:</p>
+                <p>
+                    R$ <span>5000,00</span>
+                </p>
+            </InforTotal>
+            <FooterCarrinho>
+                <p>Finalizar Compra</p>
+            </FooterCarrinho>
 
         </DivCarrinho>
     )
