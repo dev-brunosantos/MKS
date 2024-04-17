@@ -1,4 +1,4 @@
-import { DivCarrinho, DivTitulo } from "@/styles/Carrinho"
+import { ContainerProdutosScrool, DivCarrinho, DivTitulo } from "@/styles/Carrinho"
 import { MouseEventHandler, useEffect, useState } from "react";
 import { IoIosCloseCircle } from "react-icons/io";
 import { CardCarrinho } from "./CardCarrinho";
@@ -13,23 +13,12 @@ interface CarrinhoComponent {
 
 export const Carrinho = ({ largura, espaco, funcao }: CarrinhoComponent) => {
 
-    const api: string = 'https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api/v1/products?page=1&rows=10&sortBy=id&orderBy=ASC'
-    const [produtos, setProdutos] = useState<string[]>([])
+    let dados: string[] = JSON.parse(localStorage.getItem('produto'));
 
-    const [quantidade, setQuandtidade] = useState(0)
-    const [valor, setValor] = useState<number>()
-
-    useEffect(() => {
-        async function buscarDados() {
-          const dados = await fetch(api)
-          const resposta = await dados.json()
-          setProdutos(resposta.products)
-        }
-        buscarDados()
-      }, [produtos])
+    dados.forEach(dado => console.log(dado))
 
     return (
-        <DivCarrinho style={{ width: largura, padding: `0 ${espaco}` }}>
+        <DivCarrinho style={{ width: largura, padding: `0 ${espaco}` }} onMouseLeave={funcao}>
             <DivTitulo>
                 <p>Carrinho de compras</p>
                 <IoIosCloseCircle size={40} onClick={funcao}
@@ -37,20 +26,21 @@ export const Carrinho = ({ largura, espaco, funcao }: CarrinhoComponent) => {
                 />
             </DivTitulo>
 
-            {
-                produtos.map((card:any) => (
-                    <CardCarrinho 
-                      key={card.id}  imagem={card.photo} titulo={card.name} preco={valor}
-                      quantidade={quantidade}
-                      adicionar={() => {
-                        setQuandtidade(quantidade+1)
-                        setValor(parseFloat(card.price) + parseFloat(card.price))
-                      }}
-                    />
-                ))
-            }
-
-           
+            <ContainerProdutosScrool>
+                {
+                    dados.map(produto => (
+                        <CardCarrinho
+                            key={produto.id}
+                            imagem={produto.img}
+                            titulo={produto.nome}
+                            preco={produto.preco}
+                            btnAdicionar={() => alert('Adicionar')}
+                            btnRemover={() => alert('Remover')}
+                            quantidade={0}
+                        />
+                    ))
+                }
+            </ContainerProdutosScrool>
 
         </DivCarrinho>
     )

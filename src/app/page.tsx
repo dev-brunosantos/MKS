@@ -8,6 +8,10 @@ import { Modal } from '@/components/Modal';
 import { ContainerBtn } from '@/components/ContainerBtn';
 // IMPORTAÇÃO DE ESTILOS
 import * as Styles from '../styles/Styles'
+import SalvarLocalStorage from '@/tools/LocalStorage';
+
+
+
 
 export default function Home() {
 
@@ -19,6 +23,8 @@ export default function Home() {
   const [espaco, setEspaco] = useState<string>('0rem')
 
   const [produtos, setProdutos] = useState<String[]>([])
+
+  const storage:string[] = []
 
   useEffect(() => {
     async function buscarDados() {
@@ -76,6 +82,9 @@ export default function Home() {
               preco={card.price}
               descricao={card.description}
               funcao={() => ApliaImg(card.photo)}
+              btnComprar={() => {
+                SalvarLocalStorage(card.id, card.photo, card.name, card.price)
+              }}
             />
           ))
         }

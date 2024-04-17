@@ -31,3 +31,15 @@ export const DivTitulo = styled.div`
         font-weight: 700;
     }
 `;
+
+export const ContainerProdutosScrool = styled.div`
+    width: 100%;
+    height: 80%;
+    padding: 20px 0 100px 0;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    /* background-color: var(--preto); */
+`;

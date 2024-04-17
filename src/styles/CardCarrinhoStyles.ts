@@ -3,7 +3,7 @@ import { styled } from 'styled-components'
 export const CarrinhoCard = styled.div`
     width: 385px;
     height: 101px;
-    margin: 2em;
+    margin-bottom: 2em;
     padding: 20px; 
     display: flex;
     align-items: center;

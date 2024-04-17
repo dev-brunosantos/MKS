@@ -10,9 +10,10 @@ interface CardComponent {
     preco: number,
     descricao?: string,
     funcao: MouseEventHandler<HTMLImageElement>
+    btnComprar: () => void
 }
 
-export const CardProdutos = ({ imagem, titulo, preco, descricao, funcao }: CardComponent) => {
+export const CardProdutos = ({ imagem, titulo, preco, descricao, funcao, btnComprar }: CardComponent) => {
     return (
         <Card>
             <ContainerImage>
@@ -25,7 +26,7 @@ export const CardProdutos = ({ imagem, titulo, preco, descricao, funcao }: CardC
             <Descricao>
                 <p>{descricao}</p>
             </Descricao>
-            <BtnComprar>
+            <BtnComprar onClick={btnComprar}>
                 <div>
                     <FiShoppingBag size={20} />
                     <p>COMPRAR</p>
