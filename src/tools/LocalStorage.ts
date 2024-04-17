@@ -12,18 +12,3 @@ export default function SalvarLocalStorage(id:string, img: string, nome: string,
     localStorage.setItem('produto', JSON.stringify(dados))
     alert(`${item.nome} adicionado ao carrinho`)
 }
-
-
-/* 
-    btnComprar={() => {
-                SalvarLocalStorage(card.id, card.photo, card.name, card.price)
-              //   const dados:any = {
-              //     id: card.id,
-              //     img: card.photo,
-              //     nome: card.name,
-              //     preco: card.price
-              //   }
-              //   storage.push(dados)
-              //   localStorage.setItem('produto', JSON.stringify( storage))
-              // }}
-*/

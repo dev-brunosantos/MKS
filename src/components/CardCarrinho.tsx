@@ -8,23 +8,28 @@ interface CardCarrinhoComponent {
     imagem:string ,
     titulo: string,
     preco: number,
-    quantidade: number,
-    btnAdicionar: () => void,
-    btnRemover: () => void
+    // idProduto?: number
 }
 
-export const CardCarrinho = ({imagem, titulo, preco, btnAdicionar, btnRemover}:CardCarrinhoComponent) => {
 
-    const [quantidade, setQuantidade] = useState(1)
-    // const [valor, setValor] = useState<number>()
+export const CardCarrinho = ({imagem, titulo, preco }:CardCarrinhoComponent) => {
+    let dados: string[] = JSON.parse(localStorage.getItem('produto')) || [];
 
-    const adicionarProduto = (num:any) => {
-        setQuantidade(quantidade+1)
+    const [quantidadeItem, setQuantidadeItem] = useState(1)
+    const [valor, setValor] = useState<number>()
+
+    const adicionarProduto = () => {
+        setQuantidadeItem(quantidadeItem+1)
     }
+    // const removerProduto = (idProd) => {
     const removerProduto = () => {
-        setQuantidade(quantidade-1)
-        if(quantidade === 0) {
-            setQuantidade(0)
+        setQuantidadeItem(quantidadeItem-1)
+        if(quantidadeItem <= 1) {
+            // alert('Removido')
+            let texto = JSON.parse(localStorage.produto)
+            // alert(JSON.stringify(texto[0].id))
+            dados.splice(texto[0].id, 1)
+            localStorage.setItem('produto', JSON.stringify(dados))
         }
     }
 
@@ -37,9 +42,11 @@ export const CardCarrinho = ({imagem, titulo, preco, btnAdicionar, btnRemover}:C
                 {titulo}
             </CarrinhoCardTitulo>
             <ContainerBtn 
+                // remover={removerProduto} 
+                // adicionar={adicionarProduto} 
                 remover={removerProduto} 
                 adicionar={adicionarProduto} 
-                quantidade={quantidade} 
+                quantidade={quantidadeItem} 
             />
             <CarrinhoCardPreco>R$ {preco}</CarrinhoCardPreco>
         </CarrinhoCard>

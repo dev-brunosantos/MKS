@@ -39,11 +39,11 @@ export default function Home() {
   }, [produtos])
 
   useEffect(() => {
-      function QuantidadeCarrinho() {
-        dados.length != 0 ? setQuantidade(dados.length) : setQuantidade(0)
-      }
-      QuantidadeCarrinho()
-  }, [])
+    function QuantidadeCarrinho() {
+      dados.length != 0 ? setQuantidade(dados.length) : setQuantidade(0)
+    }
+    QuantidadeCarrinho()
+})
 
   const ApliaImg = (img: string) => {
     setSrcImg(img)
@@ -93,6 +93,7 @@ export default function Home() {
               descricao={card.description}
               funcao={() => ApliaImg(card.photo)}
               btnComprar={() => {
+                setQuantidade(dados.length)
                 SalvarLocalStorage(card.id, card.photo, card.name, card.price)
               }}
             />

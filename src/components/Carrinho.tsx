@@ -9,13 +9,27 @@ interface CarrinhoComponent {
     funcao: MouseEventHandler
 }
 
-
+// import SomarPrecos2 from '@/tools/SomarPreco'
 
 export const Carrinho = ({ largura, espaco, funcao }: CarrinhoComponent) => {
 
     let dados: string[] = JSON.parse(localStorage.getItem('produto')) || [];
+    const [total, setTotal] = useState<number>()
+    const [quantidade, setQuantidade] = useState(3)
 
+    useEffect(() => {
+        function SomarPrecos2() {
+            let soma = 0;
+            dados.map((produto:any) => {
+                let valor:number = soma += parseFloat(produto.preco)
+                setTotal(valor);
+            });
+        }
+        SomarPrecos2()
+    })
     // alert(dados.length)
+
+    
 
     return (
         <DivCarrinho style={{ width: largura, padding: `0 ${espaco}` }} onMouseLeave={funcao}>
@@ -28,15 +42,13 @@ export const Carrinho = ({ largura, espaco, funcao }: CarrinhoComponent) => {
 
             <ContainerProdutosScrool>
                 {
-                    dados.map(produto => (
+                    dados.map((produto:any) => (
                         <CardCarrinho
                             key={produto.id}
                             imagem={produto.img}
                             titulo={produto.nome}
                             preco={produto.preco}
-                            btnAdicionar={() => alert('Adicionar')}
-                            btnRemover={() => alert('Remover')}
-                            quantidade={0}
+                            // idProduto={produto.id}
                         />
                     ))
                 }
@@ -45,7 +57,8 @@ export const Carrinho = ({ largura, espaco, funcao }: CarrinhoComponent) => {
             <InforTotal>
                 <p>Total:</p>
                 <p>
-                    R$ <span>5000,00</span>
+                    R$ 
+                    <span> {total} </span>
                 </p>
             </InforTotal>
             <FooterCarrinho>
