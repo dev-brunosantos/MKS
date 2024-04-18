@@ -1,5 +1,6 @@
 const storage:any = localStorage.getItem('produto')
 let dados:string[] = JSON.parse(storage) || [];
+// let dados:string[] = JSON.parse() || [];
 export default function SalvarLocalStorage(id:string, img: string, nome: string, preco: string | number) {
 
     let item:any = {

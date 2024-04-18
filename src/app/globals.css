@@ -28,5 +28,16 @@ body {
   border-radius: 4px;
 }
 
+@media screen and (max-width: 900px) {
+  
+  .containerBtnAdicionar {
+    border: none;
+  }
+  .img-car-carrinho {
+    width: 1000px;
+    height: 1000px;
+  }
+}
+
 
 

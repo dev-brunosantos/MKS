@@ -1,8 +1,8 @@
 import { styled } from 'styled-components';
 
 export const Card = styled.div`
-    width: 218px;
     /* height: 285px; */
+    width: 218px;
     height: 300px;
     border-radius: 10px;
     margin: 15px 7px;
@@ -16,6 +16,11 @@ export const Card = styled.div`
     position: relative;
     overflow: hidden;
     background-color: #FFFFFF;
+    @media screen and (max-width: 900px) {
+        width: 251px;
+        height: 328px;
+        margin-bottom: 1rem;
+    }
 `;
 
 export const ContainerImage = styled.div`
@@ -62,6 +67,9 @@ export const ContainerInfor = styled.div`
     span {
         font-size: 12px;
     }
+    @media screen and(max-width: 900px) {
+        margin: 40px 0;
+    }
 `;
 
 export const Descricao = styled.div`
@@ -78,7 +86,6 @@ export const Descricao = styled.div`
 `;
 
 export const BtnComprar = styled.button`
-    /* width: 100%; */
     width: 218px;
     height: 32px;
     border: 0;
@@ -91,7 +98,7 @@ export const BtnComprar = styled.button`
     font-weight: 700;
     font-size: 14px;
     cursor: pointer;
-    background-color: #0F52BA;
+    background-color: var(--azul);
     div {
         width: 50%;
         height: 100%;
@@ -99,5 +106,8 @@ export const BtnComprar = styled.button`
         align-items: center;
         justify-content: space-around;
         /* background-color: red; */
+    }
+    @media screen and (max-width: 900px) {
+        width: 120%;
     }
 `;

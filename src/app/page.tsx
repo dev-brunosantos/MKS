@@ -23,9 +23,10 @@ export default function Home() {
   const [espaco, setEspaco] = useState<string>('0rem')
 
   const [produtos, setProdutos] = useState<String[]>([])
+  
   const storage:any = localStorage.getItem('produto')
-
   let dados: string[] = JSON.parse(storage) || [];
+
   const [quantidade, setQuantidade] = useState(0)
 
   

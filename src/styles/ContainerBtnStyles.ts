@@ -14,6 +14,20 @@ export const Container = styled.div`
         align-items: center;
         justify-content: center;
     }
+    @media screen and (max-width: 900px) {
+        width: 97.37px;
+        /* height: 34.5px; */
+        height: 40px;
+        justify-content: center;
+        grid-area: quantidade;
+        
+        justify-self: center;
+        border: 1px solid var(--cinza);
+        border-radius: 5px;
+        >p {
+            display: none;
+        }
+    }
     `;
 
 export const Btn = styled.button`
@@ -28,6 +42,13 @@ export const Btn = styled.button`
     font-weight: 400;
     cursor: pointer;
     background-color: var(--branco);
+    @media screen and (max-width: 900px) {
+        width: 80px;
+        height: 20px;
+        grid-area: imagem;
+        font-size: 22px;
+        
+    }
 `;
 
 export const Quantidade = styled.p`
@@ -38,4 +59,10 @@ export const Quantidade = styled.p`
     display: flex;
     align-items: center;
     justify-content: center;
+    @media screen and (max-width: 900px) {
+        width: 80px;
+        height: 20px;
+        font-size: 22px;
+        
+    }
 `;

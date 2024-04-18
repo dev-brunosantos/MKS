@@ -43,6 +43,35 @@ export const Menu = styled.header`
         cursor: pointer;
         background-color: #FFFFFF;
     }
+    @media screen and (max-width: 900px) {
+        width: 100vw;
+        height: 48px;
+        position: fixed;
+        top: 0;
+        padding: 0 1rem;
+        z-index: 998;
+        flex-direction: row;
+        h1 {
+            width: 50%;
+            font-size: 32px;
+        }
+        span {
+            font-size: 16px;
+        }
+        button {
+        width: 52px;
+        height: 26px;
+        border: none;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+        background-color: #FFFFFF;
+    }
+    }
 `;
 
 
@@ -55,4 +84,15 @@ export const Container = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
+    
+    @media screen and (max-width: 900px) {
+        width: 100%;
+        height: 100%;
+        max-height: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        overflow: auto;
+    }
 `;

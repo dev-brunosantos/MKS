@@ -1,4 +1,4 @@
-import {styled} from 'styled-components';
+import { styled } from 'styled-components';
 
 export const DivCarrinho = styled.div`
     /* min-width: 400px; */
@@ -12,6 +12,12 @@ export const DivCarrinho = styled.div`
     overflow: hidden;
     transition: 0.4s;
     background-color: var(--azul);
+    @media screen and (max-width: 900px) {
+        max-width: 90%;
+        height: 100vh;
+        position: fixed;
+        z-index: 999;
+    }
 `;
 
 export const DivTitulo = styled.div`
@@ -30,6 +36,10 @@ export const DivTitulo = styled.div`
         font-size: 27px;
         font-weight: 700;
     }
+    @media screen and (max-width: 900px) {
+        margin-bottom: 1rem;
+        
+    }
 `;
 
 export const ContainerProdutosScrool = styled.div`
@@ -43,9 +53,17 @@ export const ContainerProdutosScrool = styled.div`
     align-items: center;
     justify-content: start;
     /* background-color: var(--preto); */
+    @media screen and (max-width: 900px) {
+        width: 110%;
+        height: 65%;
+        margin-left: -5%;
+        margin-bottom: 0;
+        padding: 20px 10px;
+    }
+
 `;
 
-export const InforTotal =styled.div`
+export const InforTotal = styled.div`
     width: 486px;
     height: 97px;
     /* height: 200px; */
@@ -72,9 +90,16 @@ export const InforTotal =styled.div`
     span {
         margin-left: 5px;
     }
+    @media screen and (max-width: 900px) {
+        width: 100%;
+        height: 65.86px;
+        p {
+            font-size: 20px;
+        }
+    }
 `;
 
-export const FooterCarrinho =styled.button`
+export const FooterCarrinho = styled.button`
     width: 486px;
     height: 97px;
     position: absolute;
@@ -91,5 +116,12 @@ export const FooterCarrinho =styled.button`
         color: var(--branco);
         font-size: 28px;
         font-weight: 700;
+    }
+    @media screen and (max-width: 900px) {
+        width: 100%;
+        height: 65.86px;
+        p {
+            font-size: 20px;
+        }
     }
 `;
