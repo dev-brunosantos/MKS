@@ -96,7 +96,11 @@ export default function Home() {
               funcao={() => ApliaImg(card.photo)}
               btnComprar={() => {
                 setQuantidade(dados.length)
-                SalvarLocalStorage(card.id, card.photo, card.name, card.price)
+                // SalvarLocalStorage(card.id, card.photo, card.name, card.price)
+                let item:any = { id: card.id, img: card.photo, nome: card.name, preco: card.price }
+                dados.push(item)
+                localStorage.setItem('produto', JSON.stringify(dados))
+                alert(`${item.nome} adicionado ao carrinho`)
               }}
             />
           ))
