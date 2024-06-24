@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import { CarrinhoCard, CarrinhoCardImg, CarrinhoCardPreco, CarrinhoCardTitulo } from "@/styles/CardCarrinhoStyles"
-import { StaticImport } from 'next/dist/shared/lib/get-img-props'
 import { ContainerBtn } from './ContainerBtn'
 import { useEffect, useState } from 'react'
 

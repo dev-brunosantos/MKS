@@ -1,7 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['mks-sistemas.nyc3.digitaloceanspaces.com'],
+        domains: ['res.cloudinary.com'],
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "**",
+            },
+        ],
     },
     compiler: {
         styledComponents: true

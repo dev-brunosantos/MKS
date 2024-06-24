@@ -1,16 +1,13 @@
 "use client"
+
 import { useEffect, useState } from 'react';
 import { TiShoppingCart } from "react-icons/ti";
 // IMPORTAÇÃO DE COMPONENTES
 import { CardProdutos } from '@/components/CardProduto';
 import { Carrinho } from '@/components/Carrinho';
 import { Modal } from '@/components/Modal';
-import { ContainerBtn } from '@/components/ContainerBtn';
 // IMPORTAÇÃO DE ESTILOS
 import * as Styles from '../styles/Styles'
-import SalvarLocalStorage from '@/tools/LocalStorage';
-
-
 
 
 export default function Home() {
@@ -21,15 +18,16 @@ export default function Home() {
   const [verImg, setVerImg] = useState('none')
   const [abrirCarrinho, setAbrirCarrinho] = useState<string>('0px')
   const [espaco, setEspaco] = useState<string>('0rem')
+  const [teste, setTeste] = useState<any>(localStorage.getItem('produto'))
 
   const [produtos, setProdutos] = useState<String[]>([])
   
-  const storage:any = localStorage.getItem('produto')
-  let dados: string[] = JSON.parse(storage) || [];
+  // const storage:string | any = localStorage.getItem('produto')
+
+  // let dados = JSON.parse(storage) || [];
+  let dados = JSON.parse(teste) || [];
 
   const [quantidade, setQuantidade] = useState(0)
-
-  
 
   useEffect(() => {
     async function buscarDados() {
